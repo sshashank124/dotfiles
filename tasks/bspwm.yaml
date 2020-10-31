@@ -1,0 +1,16 @@
+- name: Stow bspwmrc
+  template:
+    src: bspwm/bspwmrc
+    dst: ~/.config/bspwm/bspwmrc
+    mode: 755
+
+- name: Stow sxhkdrc
+  copy:
+    src: bspwm/sxhkdrc
+    dst: ~/.config/sxhkd/sxhkdrc
+
+- name: Reload bspwm config
+  shell: "[ ! -z $(pidof -s bspwm) ] && ~/.config/bspwm/bspwmrc || true"
+
+- name: Reload sxhkd config
+  shell: pkill -USR1 -x sxhkd || true

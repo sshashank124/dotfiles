@@ -1,0 +1,9 @@
+export ZDOTDIR=$HOME/.config/zsh
+export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH
+
+export EDITOR=vim
+export VISUAL=vim
+
+# Disable file generation in ~
+export XAUTHORITY=/tmp/Xauthority-`whoami`
+export LESSHISTFILE=-

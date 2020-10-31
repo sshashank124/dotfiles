@@ -1,0 +1,4 @@
+- name: Stow git config
+  copy:
+    src: git/config
+    dst: ~/.config/git/config

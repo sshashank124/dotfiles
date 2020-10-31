@@ -1,0 +1,76 @@
+[global]
+  ### general ###
+  follow = keyboard  # focus follows {mouse, keyboard, none}
+  geometry = "400x5-{{ dimens.spacing }}+{{ dimens.statusbar_height + dimens.spacing }}"  # [{width}]x{num msgs}[+/-{x}+/-{y}]
+  shrink = yes  # shrink if width less than max
+  indicate_hidden = yes  # show how many msgs are currently hidden
+  transparency = 0  # range: [0, 100]
+  padding = {{ dimens.spacing }}
+  horizontal_padding = {{ dimens.spacing }}
+  frame_width = {{ dimens.border }}
+  frame_color = "#{{ colors.accent }}"
+  separator_height = {{ dimens.border }}
+  separator_color = frame
+  sort = yes  # sort messages by urgency
+  idle_threshold = 120  # don't remove msgs if user is idle for > X seconds
+
+  ### text ###
+  font = monospace 12
+  markup = full  # {full, strip, no}
+  format = "<b>%s</b>\n%b"
+  alignment = left  # {left, center, right}
+  show_age_threshold = 60  # -1 to disable
+  word_wrap = yes
+  ellipsize = end  # {start, middle, end} if word_wrap == no
+  ignore_newline = no
+  stack_duplicates = true
+  hide_duplicate_count = false
+  show_indicators = yes  # indicators for URLs (U) and actions (A)
+
+  ### icons ###
+  icon_position = off  # {left, right, off}
+  max_icon_size = 32  # 0 to disable
+
+  ### history ###
+  sticky_history = yes  # sticky notification when recalled from history
+  history_length = 20
+
+  ### misc ###
+  browser = /usr/bin/firefox -new-tab
+  always_run_script = true  # rule-defined scripts
+  title = dunst  # window title
+  class = dunst  # window class
+  startup_notification = false
+  verbosity = mesg  # {crit, warn, mesg, info, debug}
+  corner_radius = 0
+  force_xinerama = false
+
+  ### mouse ### {none, do_action, close_current, close_all}
+  mouse_left_click = close_current
+  mouse_middle_click = none
+  mouse_right_click = do_action
+
+[shortcuts]  # modifiers: {ctrl, mod1, mod4}
+  close = ctrl+space
+  close_all = ctrl+shift+space
+  history = ctrl+grave
+  context = ctrl+shift+period
+
+[urgency_low]
+  background = "#{{ colors.black }}"
+  frame_color = "#{{ colors.bg.4 }}"
+  foreground = "#{{ colors.white }}"
+  timeout = 5
+
+[urgency_normal]
+  background = "#{{ colors.black }}"
+  foreground = "#{{ colors.white }}"
+  timeout = 10
+
+[urgency_critical]
+  background = "#{{ colors.accent }}"
+  frame_color = "#{{ colors.accent }}"
+  foreground = "#{{ colors.black }}"
+  timeout = 0
+
+# vim: ft=cfg

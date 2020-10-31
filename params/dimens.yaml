@@ -1,0 +1,4 @@
+dimens:
+  border: 1
+  spacing: 4
+  statusbar_height: 26

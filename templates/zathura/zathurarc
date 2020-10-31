@@ -1,0 +1,51 @@
+set n-completion-items 10
+set adjust-open width
+set statusbar-basename true
+set recolor true
+set recolor-keephue true
+
+set font "monospace 12"
+
+set statusbar-h-padding 2
+set statusbar-v-padding 2
+set page-padding        {{ dimens.spacing }}
+
+# MAPPING
+map bb focus_inputbar ":blist "
+map ba focus_inputbar ":bmark "
+map bd focus_inputbar ":bdelete "
+
+# COLORS
+set default-bg "#{{ colors.black }}"
+set default-fg "#{{ colors.white }}"
+
+set statusbar-bg "#181818"
+set statusbar-fg "#eeeeee"
+
+set completion-bg           "#{{ colors.bg.2 }}"
+set completion-fg           "#{{ colors.fg.3 }}"
+set completion-group-bg     "#{{ colors.black }}"
+set completion-group-fg     "#{{ colors.white }}"
+set completion-highlight-bg "#{{ colors.accent }}"
+set completion-highlight-fg "#{{ colors.black }}"
+
+set inputbar-bg "#{{ colors.accent }}"
+set inputbar-fg "#{{ colors.black }}"
+
+set notification-bg         "#{{ colors.green }}"
+set notification-fg         "#{{ colors.black }}"
+set notification-warning-bg "#{{ colors.yellow }}"
+set notification-warning-fg "#{{ colors.black }}"
+set notification-error-bg   "#{{ colors.red }}"
+set notification-error-fg   "#{{ colors.black }}"
+
+set render-loading-bg "#{{ colors.white }}"
+set render-loading-fg "#{{ colors.black }}"
+
+set index-bg        "#{{ colors.black }}"
+set index-fg        "#{{ colors.white }}"
+set index-active-bg "#{{ colors.accent }}"
+set index-active-fg "#{{ colors.black }}"
+
+set recolor-darkcolor  "#{{ colors.white }}"
+set recolor-lightcolor "#{{ colors.black }}"

@@ -1,0 +1,5 @@
+- name: Stow lock script
+  template:
+    src: state/lock
+    dst: ~/.local/bin/lock
+    mode: 755

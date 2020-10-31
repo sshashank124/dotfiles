@@ -1,0 +1,154 @@
+;	V A R I A B L E S
+;-----------------------------------
+[color]
+bg      = #{{ colors.black }}
+fg      = #{{ colors.white }}
+accent  = #{{ colors.accent }}
+dim     = #{{ colors.bg.4 }}
+module  = #{{ colors.bg.2 }}
+
+[dimen]
+padding = 2
+
+
+;	B A R S
+;-----------------------------------
+
+[bar/main]
+width = 100%
+height = {{ dimens.statusbar_height - dimens.border }}
+fixed-center = true
+override-redirect = false
+wm-restack = bspwm
+
+background = ${color.bg}
+
+border-bottom-size = {{ dimens.border }}
+border-bottom-color = ${color.accent}
+
+font-0 = monospace:size=11;2
+font-1 = FontAwesome:size=11;2
+
+modules-left = bspwm
+modules-right = eth wlan volume battery time
+
+
+;	M O D U L E S
+;-----------------------------------
+
+[module/bspwm]
+type = internal/bspwm
+enable-click = true
+enable-scroll = false
+pin-workspaces = true
+format-padding = 1
+
+label-focused = "  "
+label-focused-foreground = ${color.accent}
+label-occupied = "  "
+label-occupied-foreground = ${color.dim}
+label-urgent = "  "
+label-urgent-foreground = ${color.fg}
+label-empty = "  "
+label-empty-foreground = ${color.dim}
+; color
+label-focused-background = ${color.bg}
+label-occupied-background = ${color.bg}
+label-urgent-background = ${color.bg}
+label-empty-background = ${color.bg}
+
+
+[module/eth]
+type = internal/network
+interface = enp2s0
+interval = 5
+; labels
+format-connected-padding = ${dimen.padding}
+label-connected = ""
+format-disconnected =
+; color
+format-connected-background = ${color.module}
+format-disconnected-background = ${color.module}
+format-connected-foreground = ${color.fg}
+format-disconnected-foreground = ${color.fg}
+
+
+[module/wlan]
+type = internal/network
+interface = wlp3s0
+interval = 5
+; labels
+format-connected-padding = ${dimen.padding}
+label-connected = " %essid%"
+label-disconnected =
+; color
+format-connected-background = ${color.bg}
+format-disconnected-background = ${color.bg}
+format-connected-foreground = ${color.fg}
+format-disconnected-foreground = ${color.fg}
+
+
+[module/volume]
+type = internal/pulseaudio
+format-volume = <label-volume> <bar-volume>
+format-muted = <label-muted> <bar-volume>
+format-volume-padding = ${dimen.padding}
+format-muted-padding = ${dimen.padding}
+label-volume = 
+label-muted = " "
+bar-volume-width = 10
+bar-volume-fill = ━
+bar-volume-indicator =
+bar-volume-empty = ─
+; color
+format-volume-background = ${color.module}
+format-muted-background = ${color.module}
+format-volume-foreground = ${color.fg}
+format-muted-foreground = ${color.accent}
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC0
+full-at = 99
+poll-interval = 10
+; charging
+label-charging = " %percentage%"
+format-charging-padding = ${dimen.padding}
+; discharging
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-padding = ${dimen.padding}
+label-discharging = %percentage%
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
+ramp-capacity-0-foreground = {{ colors.red }}
+; full
+label-full = ""
+; color
+format-charging-background = ${color.bg}
+format-discharging-background = ${color.bg}
+format-full-background = ${color.bg}
+format-charging-foreground = ${color.fg}
+format-discharging-foreground = ${color.fg}
+format-full-foreground = ${color.fg}
+
+
+[module/time]
+type = internal/date
+interval = 1
+label = "%date%  %time%"
+date = " %d %b"
+time= " %I:%M:%S %p"
+format-padding = ${dimen.padding}
+format-background = ${color.module}
+format-foreground = ${color.fg}
+
+
+[settings]
+screenchange-reload = true
+
+; vim:ft=dosini

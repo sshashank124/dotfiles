@@ -1,0 +1,27 @@
+colors:
+  mode: dark
+
+  bg:
+    1: &gray0 '1d2021'
+    2: &gray1 '3c3836'
+    3: &gray2 '504945'
+    4: &gray3 '665c54'
+
+  fg:
+    1: &gray7 'f9f5d7'
+    2: &gray6 'ebdbb2'
+    3: &gray5 'd5c4a1'
+    4: &gray4 'bdae93'
+
+  black:   *gray0
+  red:     &red     'cc241d'
+  green:   &green   '98971a'
+  yellow:  &yellow  'd79921'
+  blue:    &blue    '458588'
+  magenta: &magenta 'b16286'
+  cyan:    &cyan    '689d6a'
+  white:   *gray7
+
+  orange:  &orange  'fe8019'
+
+  accent:  *orange

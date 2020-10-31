@@ -1,0 +1,4 @@
+- name: Stow zathura config
+  template:
+    src: zathura/zathurarc
+    dst: ~/.config/zathura/zathurarc

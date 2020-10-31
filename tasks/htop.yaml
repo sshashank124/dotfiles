@@ -1,0 +1,4 @@
+- name: Stow htop config
+  copy:
+    src: htop/htoprc
+    dst: ~/.config/htop/htoprc

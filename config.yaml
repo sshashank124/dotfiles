@@ -1,0 +1,25 @@
+params:
+  - dimens.yaml
+  - colorschemes/neon.yaml
+
+tasks:
+  - console:
+    - zsh
+    - dirs
+    - pulseaudio
+    - programs:
+      - neovim
+      - git
+      - htop
+  - graphical:
+    - xorg
+    - gtk
+    - de:
+      - bspwm
+      - polybar
+      - rofi
+      - dunst
+      - state
+    - programs:
+      - xst
+      - zathura

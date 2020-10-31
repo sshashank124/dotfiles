@@ -1,0 +1,9 @@
+- name: Stow GTK3 config
+  copy:
+    src: gtk/gtk3.ini
+    dst: ~/.config/gtk-3.0/settings.ini
+
+- name: Stow GTK2 config
+  copy:
+    src: gtk/gtk2.ini
+    dst: ~/.gtkrc-2.0

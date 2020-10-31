@@ -1,0 +1,19 @@
+- name: Stow .zshenv
+  copy:
+    src: zsh/zshenv
+    dst: ~/.zshenv
+
+- name: Stow .zprofile
+  copy:
+    src: zsh/zprofile
+    dst: ~/.config/zsh/.zprofile
+
+- name: Stow .zshrc
+  copy:
+    src: zsh/zshrc
+    dst: ~/.config/zsh/.zshrc
+
+- name: Stow aliases
+  copy:
+    src: zsh/aliasrc
+    dst: ~/.config/zsh/.aliasrc

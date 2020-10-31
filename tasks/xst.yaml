@@ -1,0 +1,10 @@
+- name: Stow xst Xresources
+  template:
+    src: xst/Xresources
+    dst: ~/.config/xorg/Xresources
+
+- name: Update X resources database
+  shell: '[ ! -z "$DISPLAY" ] && xrdb ~/.config/xorg/Xresources || true'
+
+- name: Reload xst config
+  shell: 'pkill -USR1 -x xst || true'

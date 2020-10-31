@@ -1,0 +1,26 @@
+st.font       : monospace:size=12
+st.borderpx   : {{ dimens.spacing }}
+st.bold_font  : 1
+st.bellvolume : 0
+st.termname   : screen-256color
+
+st.background : #{{ colors.black }}
+st.foreground : #{{ colors.white }}
+st.cursorfg   : #{{ colors.accent }}
+
+st.color0     : #{{ colors.black }}
+st.color1     : #{{ colors.red }}
+st.color2     : #{{ colors.green }}
+st.color3     : #{{ colors.yellow }}
+st.color4     : #{{ colors.blue }}
+st.color5     : #{{ colors.magenta }}
+st.color6     : #{{ colors.cyan }}
+st.color7     : #{{ colors.white }}
+st.color8     : #{{ colors.bg.2 }}
+st.color9     : #{{ colors.red }}
+st.color10    : #{{ colors.green }}
+st.color11    : #{{ colors.yellow }}
+st.color12    : #{{ colors.blue }}
+st.color13    : #{{ colors.magenta }}
+st.color14    : #{{ colors.cyan }}
+st.color15    : #{{ colors.white }}

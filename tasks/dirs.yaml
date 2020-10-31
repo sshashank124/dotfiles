@@ -1,0 +1,4 @@
+- name: Stow user-dirs config
+  copy:
+    src: xdg/user-dirs.dirs
+    dst: ~/.config/user-dirs.dirs

@@ -1,0 +1,11 @@
+rofi.color-enabled   : true
+rofi.color-window    : #{{ colors.black }}, #{{ colors.accent }}, #{{ colors.black }}
+rofi.color-normal    : #{{ colors.black }}, #{{ colors.white }}, #{{ colors.black }}, #{{ colors.accent }}, #{{ colors.black }}
+rofi.font            : monospace 14
+rofi.lines           : 5
+rofi.padding         : {{ dimens.spacing }}
+rofi.bw              : {{ dimens.border }}
+rofi.width           : 24
+rofi.separator-style : none
+rofi.hide-scrollbar  : true
+rofi.case-sensitive  : false

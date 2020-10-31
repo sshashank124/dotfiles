@@ -1,0 +1,28 @@
+alias sudo='sudo '
+alias x='unp'
+alias p='yay'
+alias g='git'
+
+alias cb='cargo build'
+alias cbr='cargo build --release'
+alias cr='cargo run'
+alias crr='cargo run --release'
+alias cc='cargo clean'
+alias cl='[[ -a src/main.rs ]] && touch src/main.rs && cargo clippy'
+
+alias ls='ls -x --color=auto'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias xsel='xsel -l /dev/null'
+
+alias l='ls -A --file-type'
+alias ll='l -lh'
+alias sz='du -shc'
+alias f='feh --scale'
+alias pg='pgrep -af'
+alias cp='cp -i'
+alias mv='mv -i'
+alias gdb='gdb -q'
+
+# list contents when changing into directory
+chpwd() { l; }

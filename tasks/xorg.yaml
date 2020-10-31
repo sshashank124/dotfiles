@@ -1,0 +1,26 @@
+- name: Stow .xinitrc
+  template:
+    src: xorg/xinitrc
+    dst: ~/.xinitrc
+
+- name: Stow fonts config
+  copy:
+    src: xorg/fonts.conf
+    dst: ~/.config/fontconfig/fonts.conf
+
+- name: Enable fonts lcddefault
+  su: true
+  symlink:
+    src: /etc/fonts/conf.avail/11-lcdfilter-default.conf
+    dst: /etc/fonts/conf.d/11-lcdfilter-default.conf
+
+- name: Enable fonts sub-pixel RGB rendering
+  su: true
+  symlink:
+    src: /etc/fonts/conf.avail/10-sub-pixel-rgb.conf
+    dst: /etc/fonts/conf.d/10-sub-pixel-rgb.conf
+
+- name: Stow icons config
+  copy:
+    src: xorg/icons.theme
+    dst: ~/.local/share/icons/default/index.theme

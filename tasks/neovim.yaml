@@ -1,0 +1,9 @@
+- name: Stow neovim config
+  template:
+    src: neovim/init.vim
+    dst: ~/.config/nvim/init.vim
+
+- name: Stow neovim lightline colorscheme
+  template:
+    src: neovim/lightline-colorscheme.vim
+    dst: ~/.local/share/nvim/plugged/lightline.vim/autoload/lightline/colorscheme/system.vim

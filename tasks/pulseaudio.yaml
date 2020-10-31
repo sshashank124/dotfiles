@@ -1,0 +1,4 @@
+- name: Stow pulseaudio config
+  copy:
+    src: pulseaudio/daemon.conf
+    dst: ~/.config/pulse/daemon.conf

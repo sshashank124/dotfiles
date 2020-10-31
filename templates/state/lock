@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Setup vars
+overlay_img=~/.config/wallpapers/overlay.png
+lock_dir=/tmp/lock_screen
+lock_img=$lock_dir/bg.png
+lock_overlay=$lock_dir/overlay.png
+mkdir -p $lock_dir
+
+# Create lock screen background
+scrot $lock_img
+magick $lock_img -resize 5% -filter point -resize 2000% $lock_img
+magick $overlay_img -fill "#{{ colors.accent }}" -colorize 100% $lock_overlay
+magick $lock_img $lock_overlay -gravity center -composite -alpha Set $lock_img
+
+# Lock and cleanup
+i3lock -e -u -i $lock_img
+rm -r $lock_dir

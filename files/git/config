@@ -1,0 +1,27 @@
+[user]
+	name = Shashank Singh
+	email = sshashank124@gmail.com
+[push]
+	default = simple
+[core]
+	editor = vim
+[difftool]
+	prompt = true
+[diff]
+	tool = editordiff
+[difftool "editordiff"]
+  cmd = "vim -d $LOCAL $REMOTE"
+[alias]
+	s = status
+  a = add
+  aa = add -A
+  cm = commit -m
+	ps = push
+  pl = pull
+	d = difftool
+  f = fetch
+  r = remote
+  b = branch
+  ch = checkout
+  l = log
+  g = log --oneline --decorate --all --graph

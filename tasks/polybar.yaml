@@ -1,0 +1,4 @@
+- name: Stow polybar config
+  template:
+    src: polybar/config
+    dst: ~/.config/polybar/config

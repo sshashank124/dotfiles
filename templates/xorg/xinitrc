@@ -1,0 +1,12 @@
+#!/bin/sh
+
+xrdb ~/.config/xorg/Xresources
+
+feh --bg-fill --no-fehbg ~/.config/wallpapers/wallpaper &
+xsetroot -cursor_name left_ptr &
+polybar -r main &
+dunst &
+setxkbmap -option ctrl:swapcaps &
+xset b off &
+
+exec bspwm
