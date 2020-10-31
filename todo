@@ -1,4 +1,4 @@
 add pulseaudio settings
 add polybar bluetooth script
 add ath10k_pci bluetooth coexistence enable
-reload dunst config on update
+reload xinitrc (dunst config, wallpaper) on update
