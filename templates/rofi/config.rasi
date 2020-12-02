@@ -1,0 +1,33 @@
+configuration {
+  lines: 5;
+}
+
+* {
+  background-color: #{{ colors.black }};
+  text-color: #bfbfbf;
+  border: {{ dimens.border }}px;
+  width: 512px;
+}
+
+inputbar {
+  children: [entry];
+}
+
+entry {
+  padding: {{ dimens.spacing * 2 }}px;
+  background-color: #{{ colors.bg.2 }};
+  text-color: #{{ colors.accent }};
+}
+
+listview {
+  scrollbar: false;
+}
+
+element {
+  padding: {{ dimens.spacing }}px;
+}
+
+element selected {
+  background-color: #{{ colors.accent }};
+  text-color: #{{ colors.black }};
+}

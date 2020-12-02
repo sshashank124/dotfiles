@@ -1,4 +1,4 @@
 - name: Stow rofi config
   template:
-    src: rofi/config
-    dst: ~/.config/rofi/config
+    src: rofi/config.rasi
+    dst: ~/.config/rofi/config.rasi
