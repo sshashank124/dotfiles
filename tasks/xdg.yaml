@@ -2,3 +2,8 @@
   copy:
     src: xdg/user-dirs.dirs
     dst: ~/.config/user-dirs.dirs
+
+- name: Stow mimeapps list
+  copy:
+    src: xdg/mimeapps.list
+    dst: ~/.config/mimeapps.list

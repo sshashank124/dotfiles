@@ -5,7 +5,7 @@ params:
 tasks:
   - console:
     - zsh
-    - dirs
+    - xdg
     - pulseaudio
     - programs:
       - neovim

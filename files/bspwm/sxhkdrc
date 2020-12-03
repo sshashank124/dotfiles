@@ -11,7 +11,7 @@ super + q
 
 # launcher
 super + e
-  xst -e nnn
+  xst -n "floating" -e nnn
 
 # music player
 XF86Tools
