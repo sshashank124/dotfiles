@@ -9,6 +9,10 @@ super + Return
 super + q
   firefox
 
+# launcher
+super + e
+  xst -e nnn
+
 # music player
 XF86Tools
   spotify
