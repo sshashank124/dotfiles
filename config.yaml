@@ -1,6 +1,6 @@
 params:
   - dimens.yaml
-  - colorschemes/gruvbox.yaml
+  - colorschemes/paper.yaml
 
 tasks:
   - console:

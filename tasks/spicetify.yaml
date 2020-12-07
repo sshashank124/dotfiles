@@ -19,4 +19,4 @@
     dst: ~/.config/spicetify/Extensions/dribbblish.js
 
 - name: Reload spicetify
-  shell: spicetify -q update restart
+  shell: "spicetify -q update; [ ! -z $(pidof -s spotify) ] && spicetify -q restart || true"
