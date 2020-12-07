@@ -2,3 +2,6 @@
   template:
     src: dunst/dunstrc
     dst: ~/.config/dunst/dunstrc
+
+- name: Reload dunst config
+  shell: killall dunst && dunst &
