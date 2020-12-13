@@ -30,7 +30,7 @@ font-0 = monospace:size=11;2
 font-1 = FontAwesome:size=11;2
 
 modules-left = bspwm
-modules-right = eth wlan volume battery time
+modules-right = eth wlan backlight volume battery time
 
 
 ;	M O D U L E S
@@ -67,8 +67,8 @@ format-connected-padding = ${dimen.padding}
 label-connected = ""
 format-disconnected =
 ; color
-format-connected-background = ${color.module}
-format-disconnected-background = ${color.module}
+format-connected-background = ${color.bg}
+format-disconnected-background = ${color.bg}
 format-connected-foreground = ${color.fg}
 format-disconnected-foreground = ${color.fg}
 
@@ -82,10 +82,25 @@ format-connected-padding = ${dimen.padding}
 label-connected = " %essid%"
 label-disconnected =
 ; color
-format-connected-background = ${color.bg}
-format-disconnected-background = ${color.bg}
+format-connected-background = ${color.module}
+format-disconnected-background = ${color.module}
 format-connected-foreground = ${color.fg}
 format-disconnected-foreground = ${color.fg}
+
+
+[module/backlight]
+type = internal/backlight
+card = amdgpu_bl0
+format = <label> <bar>
+format-padding = ${dimen.padding}
+label = 
+bar-width = 10
+bar-fill = ━
+bar-indicator =
+bar-empty = ─
+; color
+format-background = ${color.bg}
+format-foreground = ${color.fg}
 
 
 [module/volume]
