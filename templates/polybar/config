@@ -44,18 +44,15 @@ pin-workspaces = true
 format-padding = 1
 
 label-focused = "  "
-label-focused-foreground = ${color.accent}
 label-occupied = "  "
-label-occupied-foreground = ${color.dim}
 label-urgent = "  "
-label-urgent-foreground = ${color.fg}
-label-empty = "  "
-label-empty-foreground = ${color.dim}
+label-empty = "  "
 ; color
-label-focused-background = ${color.bg}
-label-occupied-background = ${color.bg}
-label-urgent-background = ${color.bg}
-label-empty-background = ${color.bg}
+format-background = ${color.module}
+label-focused-foreground = ${color.accent}
+label-occupied-foreground = ${color.dim}
+label-urgent-foreground = ${color.fg}
+label-empty-foreground = ${color.bg}
 
 
 [module/eth]
