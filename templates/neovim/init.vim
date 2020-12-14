@@ -79,7 +79,6 @@ set expandtab ts=2 sw=2 sts=2 smarttab   " tab = 2 spaces
 nnoremap <a-w> :update<cr>|   " save changes
 nnoremap <a-q> :quit<cr>|   " quit
 inoremap jk <esc>|   " easier escape
-cnoremap jk <esc>|   " easier escape
 nnoremap Q @q|   " quick default macro
 vnoremap Q :norm @q<cr>|   " run macro on selected lines
 nnoremap Y y$|   " make Y behave similarly to C and D
