@@ -2,12 +2,12 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
-Plug 'w0rp/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-surround'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'easymotion/vim-easymotion'
+Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 " CORE
@@ -27,6 +27,21 @@ let g:loaded_python_provider = 0
 let g:loaded_python3_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_node_provider = 0
+"" completion
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+
+" LSP
+lua require'lspconfig'.rust_analyzer.setup{}
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 
 " UTILITY FUNCTIONS
 function! Map3(modes, keys, rhs)
@@ -69,17 +84,6 @@ let g:lightline.colorscheme      = 'system'
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [[]]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
-
-" ALE
-map ge :ALENext<cr>|  " next warning/error
-map gd :ALEDetail<cr>|  " error detail
-let g:ale_cpp_gcc_options = '-Wall -std=c++17'
-let g:ale_sign_error = '=>'
-let g:ale_sign_warning = '->'
-hi ALEErrorSign cterm=bold ctermfg=1
-hi ALEWarningSign cterm=bold ctermfg=3
-hi ALEError ctermbg=8
-hi ALEWarning ctermbg=8
 
 " MOVEMENT
 set whichwrap+=<,>,h,l   " wrap movement on lines
