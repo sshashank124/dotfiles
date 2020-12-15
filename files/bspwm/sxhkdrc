@@ -21,6 +21,10 @@ XF86Tools
 super + r
   rofi -modi drun -show drun
 
+# web search
+super + o
+  firefox --search $(rofi -dmenu)
+
 # volume
 XF86Audio{Raise,Lower}Volume
   pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
