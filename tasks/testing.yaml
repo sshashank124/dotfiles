@@ -1,4 +1,0 @@
-- name: Stow git config
-  copy:
-    src: git/config
-    dst: ~/projects/zapp/resulting_file.txt

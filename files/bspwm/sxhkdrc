@@ -23,7 +23,7 @@ super + r
 
 # web search
 super + o
-  firefox --search $(rofi -dmenu)
+  web_search
 
 # volume
 XF86Audio{Raise,Lower}Volume
