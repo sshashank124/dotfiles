@@ -30,11 +30,14 @@ let g:loaded_node_provider = 0
 
 " LSP
 lua require'lspconfig'.rust_analyzer.setup{}
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gt <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gf <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> gp <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> gn <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 " UI
 set background={{ colors.mode }}
@@ -58,6 +61,15 @@ let g:lightline.colorscheme      = 'system'
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [[]]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
+"" LSP theming
+hi LspDiagnosticsSignError cterm=bold ctermfg=1
+hi LspDiagnosticsSignWarning cterm=bold ctermfg=3
+hi LspDiagnosticsSignInformation cterm=bold ctermfg=4
+hi LspDiagnosticsSignHint cterm=bold ctermfg=2
+sign define LspDiagnosticsSignError text=>> texthl=LspDiagnosticsSignError
+sign define LspDiagnosticsSignWarning text=>> texthl=LspDiagnosticsSignWarning
+sign define LspDiagnosticsSignInformation text=> texthl=LspDiagnosticsSignInformation
+sign define LspDiagnosticsSignHint text=> texthl=LspDiagnosticsSignHint
 
 " MOVEMENT
 set whichwrap+=<,>,h,l   " wrap movement on lines
@@ -76,11 +88,11 @@ nmap ; :
 
 " EDITING
 set expandtab ts=2 sw=2 sts=2 smarttab   " tab = 2 spaces
-nnoremap <a-w> :update<cr>|   " save changes
-nnoremap <a-q> :quit<cr>|   " quit
+noremap <a-w> <cmd>update<cr>|   " save changes
+noremap <a-q> <cmd>quit<cr>|   " quit
 inoremap jk <esc>|   " easier escape
 nnoremap Q @q|   " quick default macro
-vnoremap Q :norm @q<cr>|   " run macro on selected lines
+vnoremap Q <cmd>norm @q<cr>|   " run macro on selected lines
 nnoremap Y y$|   " make Y behave similarly to C and D
 
 " SEARCHING
@@ -98,21 +110,21 @@ function! WinMove(key)   " smart way to move between windows
     exec "wincmd ".a:key
   endif
 endfunction
-nnoremap <a-h> :call WinMove('h')<cr>|   " window to left or new
-nnoremap <a-j> :call WinMove('j')<cr>|   " window below or new
-nnoremap <a-k> :call WinMove('k')<cr>|   " window above or new
-nnoremap <a-l> :call WinMove('l')<cr>|   " window to right or new
-nnoremap <a-s-h> <c-w><|   " shrink window horizontally
-nnoremap <a-s-j> <c-w>+|   " grow window vertically
-nnoremap <a-s-k> <c-w>-|   " shrink window vertically
-nnoremap <a-s-l> <c-w>>|   " grow window horizontally
+noremap <a-h> <cmd>call WinMove('h')<cr>|   " window to left or new
+noremap <a-j> <cmd>call WinMove('j')<cr>|   " window below or new
+noremap <a-k> <cmd>call WinMove('k')<cr>|   " window above or new
+noremap <a-l> <cmd>call WinMove('l')<cr>|   " window to right or new
+noremap <a-s-h> <c-w><|   " shrink window horizontally
+noremap <a-s-j> <c-w>+|   " grow window vertically
+noremap <a-s-k> <c-w>-|   " shrink window vertically
+noremap <a-s-l> <c-w>>|   " grow window horizontally
 
 " BUFFERS
 set hidden   " hide buffers instead of closing on navigating away
-nnoremap <a-a> :bp<cr>|   " prev buffer
-nnoremap <a-s> :bd<cr>|   " delete buffer
-nnoremap <a-d> :bn<cr>|   " next buffer
+noremap <a-a> <cmd>bp<cr>|   " prev buffer
+noremap <a-s> <cmd>bd<cr>|   " delete buffer
+noremap <a-d> <cmd>bn<cr>|   " next buffer
 
 " TERMINAL
-nnoremap <a-cr> :terminal<cr>
+nnoremap <a-cr> <cmd>terminal<cr>
 autocmd BufEnter,TermOpen term://* startinsert   " enter term in insert mode
