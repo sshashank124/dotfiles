@@ -1,5 +1,6 @@
 configuration {
   lines: 5;
+  fixed-num-lines: false;
 }
 
 * {
