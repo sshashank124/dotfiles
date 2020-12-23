@@ -1,4 +1,4 @@
 search_term=$(rofi -dmenu)
 if [ $? -eq 0 ]; then
-  firefox --search $search_term
+  firefox --search "$search_term"
 fi
