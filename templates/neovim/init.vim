@@ -30,6 +30,7 @@ let g:loaded_node_provider = 0
 
 " LSP
 lua require'lspconfig'.rust_analyzer.setup{}
+lua require'lspconfig'.clangd.setup{}
 nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>
