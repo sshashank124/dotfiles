@@ -1,10 +1,10 @@
 - name: Stow .xinitrc
-  template:
+  copy:
     src: xorg/xinitrc
     dst: ~/.xinitrc
 
 - name: Stow fonts config
-  copy:
+  template:
     src: xorg/fonts.conf
     dst: ~/.config/fontconfig/fonts.conf
 

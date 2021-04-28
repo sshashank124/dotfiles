@@ -1,6 +1,7 @@
 params:
   - dimens.yaml
-  - colorschemes/gruvbox.yaml
+  - fonts.yaml
+  - colorschemes/neon.yaml
 
 tasks:
   - console:
@@ -21,7 +22,7 @@ tasks:
       - dunst
       - state
     - programs:
-      - xst
+      - wezterm
       - zathura
       - spicetify
       - firefox

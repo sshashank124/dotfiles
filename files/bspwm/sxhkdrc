@@ -1,9 +1,9 @@
 # terminal
 super + w
-  xst
+  wezterm
 
 super + Return
-  xst -n "floating"
+  wezterm start --class "floating"
 
 # web browser
 super + q
@@ -11,7 +11,7 @@ super + q
 
 # launcher
 super + e
-  xst -n "floating" -e nnn
+  wezterm start --class "floating" nnn
 
 # music player
 XF86Tools

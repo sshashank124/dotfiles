@@ -7,3 +7,8 @@
   template:
     src: neovim/lightline-colorscheme.vim
     dst: ~/.local/share/nvim/plugged/lightline.vim/autoload/lightline/colorscheme/system.vim
+
+- name: Stow CoC settings
+  copy:
+    src: neovim/coc-settings.json
+    dst: ~/.config/nvim/coc-settings.json

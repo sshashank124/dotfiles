@@ -1,0 +1,4 @@
+- name: Stow wezterm config
+  template:
+    src: wezterm/wezterm.lua
+    dst: ~/.config/wezterm/wezterm.lua

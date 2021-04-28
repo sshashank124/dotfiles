@@ -6,7 +6,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'rstacruz/vim-closer'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
-Plug 'neovim/nvim-lspconfig'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " CORE
@@ -29,16 +29,15 @@ let g:loaded_ruby_provider = 0
 let g:loaded_node_provider = 0
 
 " LSP
-lua require'lspconfig'.rust_analyzer.setup{}
-lua require'lspconfig'.clangd.setup{}
-nnoremap <silent> K  <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gt <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gf <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap <silent> gr <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> gp <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> gn <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+inoremap <silent><expr> <c-space> coc#refresh()
+nnoremap <silent> K <cmd>call CocActionAsync('doHover')<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gt <Plug>(coc-references)
+nmap <silent> gr <Plug>(coc-rename)
+nmap <silent> gp <Plug>(coc-diagnostic-prev)
+nmap <silent> gn <Plug>(coc-diagnostic-next)
 
 " UI
 set background={{ colors.mode }}
@@ -54,6 +53,14 @@ augroup CursorLine   " only highlight current line in active buffer/window
 augroup END
 hi VertSplit cterm=none ctermbg=8 ctermfg=8|   " dark gray vertical split
 hi SignColumn ctermbg=0|   " no bg on signs gutter
+hi Pmenu cterm=none ctermbg=8 ctermfg=7
+hi PmenuSel cterm=bold ctermbg=0 ctermfg=10
+hi PmenuSbar ctermbg=8
+hi PmenuThumb ctermbg=0
+hi CocErrorSign ctermfg=1
+hi CocWarningSign ctermfg=3
+hi CocInfoSign ctermfg=5
+hi CocHintSign ctermfg=4
 set number relativenumber   " relative line numbers except current line
 set showtabline=2
 "" lightline+bufferline
@@ -62,15 +69,6 @@ let g:lightline.colorscheme      = 'system'
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [[]]}
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
-"" LSP theming
-hi LspDiagnosticsSignError cterm=bold ctermfg=1
-hi LspDiagnosticsSignWarning cterm=bold ctermfg=3
-hi LspDiagnosticsSignInformation cterm=bold ctermfg=4
-hi LspDiagnosticsSignHint cterm=bold ctermfg=2
-sign define LspDiagnosticsSignError text=>> texthl=LspDiagnosticsSignError
-sign define LspDiagnosticsSignWarning text=>> texthl=LspDiagnosticsSignWarning
-sign define LspDiagnosticsSignInformation text=> texthl=LspDiagnosticsSignInformation
-sign define LspDiagnosticsSignHint text=> texthl=LspDiagnosticsSignHint
 
 " MOVEMENT
 set whichwrap+=<,>,h,l   " wrap movement on lines
