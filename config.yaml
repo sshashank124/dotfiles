@@ -24,5 +24,4 @@ tasks:
     - programs:
       - wezterm
       - zathura
-      - spicetify
       - firefox
